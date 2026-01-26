@@ -23,13 +23,21 @@ body {
   padding-bottom: 1.25rem;
   max-width: 100%;
   margin: 0 auto;
-  border: 1px solid #000;
-  border-radius: 1ch;
 }
 
 .logo {
   text-align: center;
   margin: 3.125rem auto 2.5rem;
+}
+
+.logo a {
+  display: inline-block;
+}
+
+.logo a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .logo svg {
@@ -162,6 +170,11 @@ body {
     outline-offset: 2px;
   }
 
+  .ip-security-toggle {
+    position: absolute;
+    opacity: 0;
+  }
+
   .switch {
     min-width: 3.125rem;
     height: 1.75rem;
@@ -174,5 +187,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .switch-text {
+    display: none;
+  }
+
+  .ip-security-toggle:checked + .switch {
+    background: var(--color-primary);
+  }
+
+  .ip-security-toggle:not(:checked) + .switch .switch-text-off,
+  .ip-security-toggle:checked + .switch .switch-text-on {
+    display: inline;
+  }
+
+  .ip-security-toggle:focus-visible + .switch {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
   }
 }
