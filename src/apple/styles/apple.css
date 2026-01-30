@@ -1,3 +1,308 @@
-@import "./card-component.css";
+@import "./reset.css";
+@import "./theme.css";
+@import "./base.css";
 
-/* 카드 레이아웃 */
+/* 카드 컴포넌트 */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: var(--size);
+  padding-top: var(--large-spacing);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Large Screen 상단 여백 */
+@media (min-width: 1024px) {
+  .card {
+    padding-top: var(--extra-large-spacing);
+  }
+}
+
+/* 카드 제목 */
+.card__title {
+  margin: 0;
+  font-size: var(--large-text);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .card__title {
+    font-size: var(--extra-large-text);
+  }
+}
+
+/* 카드 부제목 */
+.card__subtitle {
+  margin: var(--x-small-spacing) 0;
+  font-size: var(--base-text);
+  line-height: var(--line-normal);
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .card__subtitle {
+    font-size: var(--medium-text);
+  }
+}
+
+/* 출시일 텍스트 */
+.card__release {
+  margin: 0 0 var(--x-small-spacing);
+  font-size: var(--small-text);
+  color: var(--gray);
+}
+
+/* 링크 컨테이너 */
+.card__links {
+  display: flex;
+  gap: var(--base-spacing);
+  margin-top: var(--x-small-spacing);
+}
+
+/* 링크 기본 스타일 */
+.card__link {
+  display: inline-block;
+  padding: var(--x-small-spacing) var(--small-spacing);
+  font-size: var(--xx-small-text);
+  text-decoration: none;
+  border-radius: 1.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .card__link {
+    font-size: var(--x-small-text);
+  }
+}
+
+.card__link:hover {
+  opacity: 0.85;
+}
+
+/* 다크 테마 카드 */
+.card--dark {
+  color: var(--white);
+}
+
+.card--dark .card__link--primary {
+  background-color: var(--blue-100);
+  color: var(--white);
+}
+
+.card--dark .card__link--primary:hover {
+  background-color: var(--blue-200);
+}
+
+.card--dark .card__link--secondary {
+  background-color: transparent;
+  color: var(--blue-100);
+  border: 1px solid var(--blue-100);
+}
+
+.card--dark .card__link--secondary:hover {
+  background-color: var(--blue-100);
+  color: var(--white);
+}
+
+/* 라이트 테마 카드 */
+.card--light {
+  color: var(--black);
+}
+
+.card--light .card__link--primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.card--light .card__link--primary:hover {
+  background-color: var(--black);
+}
+
+.card--light .card__link--secondary {
+  background-color: transparent;
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.card--light .card__link--secondary:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* 배경 이미지 - iPhone 15 Pro */
+.card--iphone15-pro {
+  background-image: url("../products/iphone15_pro.jpeg");
+}
+
+.card--iphone15-pro-wide {
+  background-image: url("../products/iphone15_pro.jpeg");
+}
+
+@media (min-width: 1024px) {
+  .card--iphone15-pro-wide {
+    background-image: url("../products/iphone15_pro_wide.jpeg");
+  }
+}
+
+/* 2배율 디스플레이 대응 - iPhone 15 Pro */
+@media (min-resolution: 2dppx) {
+  .card--iphone15-pro {
+    background-image: url("../products/iphone15_pro_2x.jpeg");
+  }
+
+  .card--iphone15-pro-wide {
+    background-image: url("../products/iphone15_pro_2x.jpeg");
+  }
+}
+
+@media (min-width: 1024px) and (min-resolution: 2dppx) {
+  .card--iphone15-pro-wide {
+    background-image: url("../products/iphone15_pro_wide_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - iPhone 15 */
+.card--iphone15 {
+  background-image: url("../products/iphone15.jpeg");
+}
+
+@media (min-resolution: 2dppx) {
+  .card--iphone15 {
+    background-image: url("../products/iphone15_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - iPad Pro */
+.card--ipad-pro {
+  background-image: url("../products/ipad_pro.jpeg");
+}
+
+.card--ipad-pro-wide {
+  background-image: url("../products/ipad_pro.jpeg");
+}
+
+@media (min-width: 1024px) {
+  .card--ipad-pro-wide {
+    background-image: url("../products/ipad_pro_wide.jpeg");
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .card--ipad-pro {
+    background-image: url("../products/ipad_pro_2x.jpeg");
+  }
+
+  .card--ipad-pro-wide {
+    background-image: url("../products/ipad_pro_2x.jpeg");
+  }
+}
+
+@media (min-width: 1024px) and (min-resolution: 2dppx) {
+  .card--ipad-pro-wide {
+    background-image: url("../products/ipad_pro_wide_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - iPad Air */
+.card--ipad-air {
+  background-image: url("../products/ipad_air.jpeg");
+}
+
+.card--ipad-air-wide {
+  background-image: url("../products/ipad_air.jpeg");
+}
+
+@media (min-width: 1024px) {
+  .card--ipad-air-wide {
+    background-image: url("../products/ipad_air_wide.jpeg");
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .card--ipad-air {
+    background-image: url("../products/ipad_air_2x.jpeg");
+  }
+
+  .card--ipad-air-wide {
+    background-image: url("../products/ipad_air_2x.jpeg");
+  }
+}
+
+@media (min-width: 1024px) and (min-resolution: 2dppx) {
+  .card--ipad-air-wide {
+    background-image: url("../products/ipad_air_wide_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - MacBook Air */
+.card--macbook-air {
+  background-image: url("../products/macbook_air.jpeg");
+}
+
+@media (min-resolution: 2dppx) {
+  .card--macbook-air {
+    background-image: url("../products/macbook_air_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - Apple Watch */
+.card--apple-watch {
+  background-image: url("../products/apple_watch.jpeg");
+}
+
+@media (min-resolution: 2dppx) {
+  .card--apple-watch {
+    background-image: url("../products/apple_watch_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - AirPods Pro */
+.card--airpods-pro {
+  background-image: url("../products/airpods_pro.jpeg");
+}
+
+@media (min-resolution: 2dppx) {
+  .card--airpods-pro {
+    background-image: url("../products/airpods_pro_2x.jpeg");
+  }
+}
+
+/* 배경 이미지 - WWDC24 */
+.card--wwdc24 {
+  background-image: url("../products/wwdc24.jpeg");
+}
+
+@media (min-resolution: 2dppx) {
+  .card--wwdc24 {
+    background-image: url("../products/wwdc24_2x.jpeg");
+  }
+}
+
+/* 카드 그리드 레이아웃 */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--small-spacing);
+  width: 100%;
+  padding: var(--small-spacing);
+}
+
+/* Large Screen: 2열 그리드 */
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--base-spacing);
+    padding: var(--base-spacing);
+  }
+
+  /* wide 카드는 2열 차지 */
+  .card--wide {
+    grid-column: span 2;
+  }
+}
